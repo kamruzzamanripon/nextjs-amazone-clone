@@ -1,15 +1,16 @@
-
+import Image from 'next/image';
+import logo from '../public/amazon_PNG11.png';
 const Footer = () => {
     return (
-        <footer className="px">
+        <footer>
             
-            <div className='bg-[#485769] text-white text-sm font-semibold'>
+            <div className='bg-[#485769] text-white text-sm font-semibold py-4'>
                 <p className='text-center'>Back to Top</p>
             </div>
 
 
             <div className="bg-[#232F3E] text-white font-semibold text-center">
-                <div className='max-w-screen-2xl mx-auto space-y-5 py-4 px-8 grid items-baseline sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 sm:text-left '>
+                <div className='max-w-screen-xl mx-auto space-y-5 py-4 px-8 grid items-baseline sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 sm:text-left '>
                     <div>
                         <h2 className="text-xl pb-2">Get to Know Us</h2>
                         <ul className="text-sm">
@@ -58,10 +59,30 @@ const Footer = () => {
                 </div>
             </div>
 
+            <div className="bg-[#232F3E] text-white font-semibold text-center border-t border-gray-300/80 py-10">
+                <div className='flex justify-center '>
+                    <div className='mr-10'>
+                        <Image 
+                            src={logo}
+                            width={76}
+                            height={23}
+                            alt="amazon"
+                        />
+                    </div>
+                    
+                <div className='space-x-4'>
+                        <button className='border border-gray-300 rounded-sm px-5 cursor-pointer'>English</button>
+                        <button className='border border-gray-300 rounded-sm px-5 cursor-pointer'>
+                            <span className='font-bold'>$</span> USD-US. Dollar
+                        </button>
+                        <button className='border border-gray-300 rounded-sm px-5 cursor-pointer'>United States</button>
+                </div>
+                </div>
+            </div>
 
 
             <div className='bg-[#131A22] text-gray-200 text-xs font-semibold'>
-               <div className="max-w-screen-2xl mx-auto grid grid-cols-3 gap-2  items-baseline sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-12  space-x-3 space-y-3 py-6 px-8 ">
+               <div className="max-w-screen-xl mx-auto grid grid-cols-3 gap-2  items-baseline sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-12  space-x-3 space-y-3 py-6 px-8 ">
                     
                     <div >
                         <h3 className="text-sm">Amazon Music</h3>
