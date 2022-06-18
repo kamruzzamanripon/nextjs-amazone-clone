@@ -2,7 +2,6 @@ import { MenuIcon, SearchIcon, ShoppingCartIcon } from "@heroicons/react/outline
 import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from 'next/router';
-import React from "react";
 import { useSelector } from 'react-redux';
 import logoImage from '../public/amazon_PNG11.png';
 import { selectItems } from '../slices/basketSlice';
@@ -43,10 +42,10 @@ const Header = () => {
                 <p className="hover:underline">
                   {data ? `Hello, ${data.user.name}` : "Sign In"}
                 </p>
-                <p className="font-extrabold md:text-sm">Account & Lists</p>
-                
+                {/* <p className="font-extrabold md:text-sm">Account & Lists</p> */}
+                <br />
                 {data && (
-                  <span className={`${!signIn ? 'hidden' : 'absolute bottom-0 -right-7 h-5 bg-yellow-400 text-center cursor-pointer w-13  text-black font-bold rounded px-1'} `}
+                  <span className={`${!signIn ? 'hidden' : 'absolute -bottom-3  h-5 bg-yellow-400 text-center cursor-pointer w-13  text-black font-bold rounded px-1'} `}
                 
                   onClick={!data ? signIn : signOut}
                   >
@@ -75,7 +74,7 @@ const Header = () => {
       </div>
 
       {/* Bottom Nav */}
-      <div className="flex items-center space-x-3 p-2 bg-amazon_blue text-white text-sm">
+      <div className="flex items-center space-x-3 p-2 bg-[#282E3D] text-white text-sm">
           <p className="link flex items-center">
               <MenuIcon className="h-6 mr-1" />
           </p>

@@ -1,17 +1,16 @@
 import { StarIcon } from '@heroicons/react/solid';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Currency from 'react-currency-formatter';
 import { useDispatch } from 'react-redux';
+import primeImage from '../public/Prime-tag.png';
 import { addToBasket } from '../slices/basketSlice';
 
-const MAX_RATING = 5;
-const MIN_RATING = 1;
 
 
-const Product = ({id, title, price, description, category, image}) => {
-    const [rating] = useState( Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING )
-    const [hasPrime] = useState(Math.random() < 0.5)
+const Product = ({id, title, price, description, category, image, rating}) => {
+    const ratingFromApi = Math.floor(rating.rate) 
+    const hasPrime = useState(Math.random() < 0.5)
     const dispatch = useDispatch()
 
     const addItemToBasket = ()=>{
@@ -33,7 +32,7 @@ const Product = ({id, title, price, description, category, image}) => {
             <h4 className='my-3'>{title}</h4>
 
             <div className='flex'>
-                {Array(rating).fill().map(( _, i)=>(
+                {Array(ratingFromApi).fill().map(( _, i)=>(
                     <StarIcon key={i} className="h-5 text-yellow-500" />
                 )) }
                 
@@ -42,12 +41,12 @@ const Product = ({id, title, price, description, category, image}) => {
             <p className='text-xs my-2 line-clamp-2'>{description}</p>
 
             <div className='mb-5'>
-                <Currency quantity={price} currency='GBP' />
+                <Currency quantity={price} currency='USD' />
             </div>
 
             {hasPrime && (
                 <div className='flex items-center space-x-2 mt-5'>
-                    <img className='w-12' src="https://links.papareact.com/fdw" alt="" />
+                      <Image  src={primeImage} alt="primeImage" height={50} width={50} objectFit='contain' />
                     <p className='text-xs text-gray-500'>Free Next-day Delivery</p>
                 </div>
             )}
