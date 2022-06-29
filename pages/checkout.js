@@ -2,11 +2,11 @@ import { loadStripe } from '@stripe/stripe-js';
 import axios from 'axios';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
-import React from 'react';
 import Currency from 'react-currency-formatter';
 import { useSelector } from 'react-redux';
 import CheckoutProduct from '../components/CheckoutProduct';
 import Header from '../components/Header';
+import bannerImage from '../public/Prime-day-banner.png';
 import { selectItems, selectTotal } from '../slices/basketSlice';
 const stripePromise = loadStripe(process.env.stripe_public_key);
 
@@ -46,10 +46,11 @@ const Checkout = () => {
                     
                     <div className='text-center'>
                         <Image
-                            src="https://links.papareact.com/ikj"
+                            src={bannerImage}
                             width={1020}
                             height={250}
                             objectFit='contain'
+                            alt="image"
                         />
                 
                     </div>
@@ -77,6 +78,7 @@ const Checkout = () => {
                 </div>
 
 
+                {/* Right */}
                 {session.data && (
                     <div className='flex flex-col bg-white p-10 shadow-md'>
                     {items.length > 0 && (

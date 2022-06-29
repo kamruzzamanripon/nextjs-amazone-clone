@@ -23,6 +23,7 @@ const Header = () => {
             height={40}
             objectFit="contain"
             className="cursor-pointer"
+            alt="image"
           />
         </div>
 

@@ -1,11 +1,14 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import logo from '../public/amazon_PNG11.png';
 const Footer = () => {
+    const router = useRouter()
+
     return (
         <footer>
             
             <div className='bg-[#485769] text-white text-sm font-semibold py-4'>
-                <p className='text-center'>Back to Top</p>
+                <p className='text-center cursor-pointer' onClick={()=>router.push('/')}>Back to Top</p>
             </div>
 
 
